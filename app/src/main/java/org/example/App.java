@@ -3,12 +3,21 @@
  */
 package org.example;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+
 public class App {
-    public String getGreeting() {
+
+
+    public static void main(String[] args) {
+        List<Integer> l= Arrays.asList(1,2,3,4,5,6,7,8,9);
+        List<Integer> l1=l.stream().filter(checkEven()).collect(Collectors.toList());
 
     }
 
-    public static void main(String[] args) {
-
+    public  static Predicate<Integer> checkEven(){
+        return i ->i%2==0;
     }
 }
