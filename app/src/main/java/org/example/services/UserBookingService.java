@@ -3,6 +3,7 @@ package org.example.services;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.example.entities.User;
+import org.example.util.UserServiceUtil;
 
 import java.io.File;
 import java.io.IOException;
