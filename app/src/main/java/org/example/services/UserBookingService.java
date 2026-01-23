@@ -43,4 +43,9 @@ public class UserBookingService
             return Boolean.FALSE;
         }
     }
+
+    private void saveUserListToFile() throws IOException {
+        File usersFile= new File(USERS_PATH);
+        objectMapper.writeValue(usersFile,userList);
+    }
 }
