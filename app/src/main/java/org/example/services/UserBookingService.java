@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Optional;
+import java.util.Scanner;
 
 public class UserBookingService
 {
@@ -48,4 +49,33 @@ public class UserBookingService
         File usersFile= new File(USERS_PATH);
         objectMapper.writeValue(usersFile,userList);
     }
+
+    public void fetchBooking(){
+        user.printTickets();
+    }
+
+    public Boolean cancelBooking(String ticketId){
+        Scanner s = new Scanner(System.in);
+        System.out.println("Enter the ticket id to cancel");
+        ticketId = s.next();
+
+        if (ticketId == null || ticketId.isEmpty()) {
+            System.out.println("Ticket ID cannot be null or empty.");
+            return Boolean.FALSE;
+        }
+        String finalTicketId1 = ticketId;  //Because strings are immutable
+        boolean removed = user.getTicketsBooked().removeIf(ticket -> ticket.getTicketId().equals(finalTicketId1));
+
+        String finalTicketId = ticketId;
+        user.getTicketsBooked().removeIf(Ticket -> Ticket.getTicketId().equals(finalTicketId));
+        if (removed) {
+            System.out.println("Ticket with ID " + ticketId + " has been canceled.");
+            return Boolean.TRUE;
+        }else{
+            System.out.println("No ticket found with ID " + ticketId);
+            return Boolean.FALSE;
+        }
+
+    }
+
 }
