@@ -3,8 +3,12 @@
  */
 package org.example;
 
+import org.example.services.UserBookingService;
+
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -12,12 +16,17 @@ public class App {
 
 
     public static void main(String[] args) {
-        List<Integer> l= Arrays.asList(1,2,3,4,5,6,7,8,9);
-        List<Integer> l1=l.stream().filter(checkEven()).collect(Collectors.toList());
+        System.out.println("Running Train Booking System");
+        Scanner scanner = new Scanner(System.in);
+        int option = 0;
+        UserBookingService userBookingService;
+        try{
+            userBookingService = new UserBookingService();
+        }catch(IOException ex){
+            System.out.println("There is something wrong");
 
-    }
 
-    public  static Predicate<Integer> checkEven(){
-        return i ->i%2==0;
-    }
+        }
+
+
 }
