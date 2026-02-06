@@ -34,7 +34,7 @@ public class UserBookingService
         loadUsers();
     }
 
-    public List<User> loadUsers() throws IOException{
+    public void loadUsers() throws IOException{
         File users =new File(USERS_PATH);
         userList=objectMapper.readValue(users, new TypeReference<List<User>>() {});
     }

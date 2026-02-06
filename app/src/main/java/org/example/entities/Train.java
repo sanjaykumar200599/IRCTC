@@ -10,6 +10,8 @@ public class Train {
     private List<List<Integer>> seats;
     private Map<String,String> stationTimes;
     private List<String> stations;
+    public Train() {
+    }
 
 
     public Train(String trainId, String trainNo, List<List<Integer>> seats, Map<String, String> stationTimes, List<String> stations){
@@ -19,6 +21,8 @@ public class Train {
         this.stationTimes = stationTimes;
         this.stations = stations;
     }
+
+
 
     public List<String> getStations(){
         return stations;
