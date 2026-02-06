@@ -3,6 +3,7 @@
  */
 package org.example;
 
+import org.example.entities.Train;
 import org.example.entities.User;
 import org.example.services.UserBookingService;
 import org.example.util.UserServiceUtil;
